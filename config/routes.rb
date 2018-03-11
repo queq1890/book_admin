@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :profile
+  resource :profile, only: %i{show edit update}
 
   resources :publishers do
     resources :books
