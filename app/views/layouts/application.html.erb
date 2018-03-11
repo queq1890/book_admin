@@ -2,7 +2,11 @@
 <html>
 <head>
   <title>BookAdmin</title>
+  <!-- ここで読み込むcssを変えられる -->
+  <!-- 別のlayoutを読み込ませたいときは、コントローラで render :hogehoge, layout: "fugafuga"みたいにする -->
+  <!-- そしてfugafuga.html.erbのstylesheet_link_tag で使いたいcssを読み込ませる -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!-- ここで読み込むjsを変えられる -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
