@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resource :profile, only: %i{show edit update}
+  resources :books
 
   resources :publishers do
-    resources :books
+
 
     member do
       get 'detail'
