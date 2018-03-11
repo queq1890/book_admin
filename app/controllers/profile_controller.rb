@@ -6,5 +6,9 @@ class ProfileController < ApplicationController
   end
 
   def update
+    # current_userとか使ってるけどヘルパーも定義していない && deviseとかも入れてないのでただの例示
+    # mass assignment 脆弱性を含むコード
+    user = current_user
+    user.update(params[:user])
   end
 end
