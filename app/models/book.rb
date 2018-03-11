@@ -1,4 +1,8 @@
 class Book < ActiveRecord::Base
+  # enumを使うことでコード上ではわかりやすい文字列を使いつつActiveRecord側では数値に変換して使用可能に
+  enum status: %W(reservation now_on_sale end_of_print)
+  # ハッシュで明示的に数値を指定することも可能 enum status: { reservation: 0,  now_on_sale: 1, end_of_print: 2 }
+
   before_validation :add_lovely_to_cat
 
   scope :costly, -> { where("price > ?", 3000) }
