@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :profile
+
   resources :publishers do
     resources :books
 
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
       get 'detail'
     end
 
-    collections do
+    collection do
       get 'search'
     end
   end
