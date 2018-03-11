@@ -19,10 +19,19 @@ class Book < ActiveRecord::Base
   #   end
   # end
 
+  after_destroy :if => :high_price? do |book|
+    Rails.logger.warn "Book with high price is deleted: #{book.attributes.inspect}"
+    Rails.logger.warn "Please check"
+  end
+
 # pryで見ると大丈夫なのになぜかエラーになる
   def add_lovely_to_cat
     self.name = self.name.gsub(/Cat/) do |matched|
       "lovely #{matched}"
     end
+  end
+
+  def high_price?
+    price >= 5000
   end
 end
